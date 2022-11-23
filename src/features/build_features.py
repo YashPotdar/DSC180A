@@ -5,10 +5,10 @@ from torch.utils.data import Dataset
 
 def files2df(threshold=400):
     keys = np.genfromtxt(
-        "/home/ddavilag/private/data/df_bnpp_keys.csv", delimiter=",", dtype=str
+        "/home/ypotdar/private/data/df_bnpp_keys.csv", delimiter=",", dtype=str
     )
     file_paths = np.genfromtxt(
-        "/home/ddavilag/private/data/df_bnpp_datapaths.csv", delimiter=",", dtype=str
+        "/home/ypotdar/private/data/df_bnpp_datapaths.csv", delimiter=",", dtype=str
     )
     df = pd.DataFrame({"key": keys, "path": file_paths})
     df.key = df.key.apply(lambda x: eval(x))
@@ -17,15 +17,15 @@ def files2df(threshold=400):
 
     cols = ["unique_key", "bnpp_value_log", "BNP_value"]
     test_df = pd.read_csv(
-        "/home/ddavilag/teams/dsc-180a---a14-[88137]/BNPP_DT_test_with_ages.csv",
+        "/home/ypotdar/teams/dsc-180a---a14-[88137]/BNPP_DT_test_with_ages.csv",
         usecols=cols,
     ).set_index("unique_key")
     train_df = pd.read_csv(
-        "/home/ddavilag/teams/dsc-180a---a14-[88137]/BNPP_DT_train_with_ages.csv",
+        "/home/ypotdar/teams/dsc-180a---a14-[88137]/BNPP_DT_train_with_ages.csv",
         usecols=cols,
     ).set_index("unique_key")
     val_df = pd.read_csv(
-        "/home/ddavilag/teams/dsc-180a---a14-[88137]/BNPP_DT_val_with_ages.csv",
+        "/home/ypotdar/teams/dsc-180a---a14-[88137]/BNPP_DT_val_with_ages.csv",
         usecols=cols,
     ).set_index("unique_key")
 
